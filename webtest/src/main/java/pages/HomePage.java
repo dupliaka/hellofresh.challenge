@@ -1,12 +1,18 @@
 package pages;
 
-import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.support.FindBy;
+import pages.authentication.AuthenticationPage;
 
-public class HomePage implements WebPage {
+import static com.codeborne.selenide.Selenide.page;
 
+public class HomePage{
+    @FindBy(className = "login")
+    private SelenideElement signIn;
 
-    public void open(){
-        Selenide.open("/index.php");
+    public AuthenticationPage signIn(){
+        signIn.click();
+        return page(AuthenticationPage.class);
     }
 
 }

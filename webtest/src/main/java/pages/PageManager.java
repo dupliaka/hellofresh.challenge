@@ -1,28 +1,37 @@
 package pages;
 
-import lombok.extern.log4j.Log4j;
 
-import java.util.HashMap;
-import java.util.Map;
+import pages.authentication.AccountCreationPersonalInformationPage;
+import pages.authentication.AuthenticationPage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static com.codeborne.selenide.Selenide.page;
 
-
-@Log4j
 public class PageManager {
+    private static Logger log = LoggerFactory.getLogger(PageManager.class);
+
     private static final HomePage homePage = page(HomePage.class);
+    private static final AuthenticationPage authenticationPage = page(AuthenticationPage.class);
 
-    private static Map<String, WebPage> relativePaths = new HashMap<String, WebPage>() {{
-        put("HOME", homePage);
-    }};
+    public static MyAccountPage getMyAccountPage() {
+        return myAccountPage;
+    }
 
+    private static final MyAccountPage myAccountPage = page(MyAccountPage.class);
 
-    public static void openPage(String page) {
-        WebPage pageToOpen = relativePaths.get(page);
-        if (pageToOpen == null) {
-            throw new IllegalArgumentException("Page with name: " + page + "is not supported");
-        }
-        pageToOpen.open();
+    public static AccountCreationPersonalInformationPage getAccountCreationPersonalInformation() {
+        return accountCreationPersonalInformation;
+    }
+
+    private static final AccountCreationPersonalInformationPage accountCreationPersonalInformation = page(AccountCreationPersonalInformationPage.class);
+
+    public static HomePage getHomePage() {
+        return homePage;
+    }
+
+    public static AuthenticationPage getAuthenticationPage() {
+        return authenticationPage;
     }
 
 }
