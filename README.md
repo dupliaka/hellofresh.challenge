@@ -22,3 +22,4 @@ This is an application to test http://automationpractice.com
 
 ###Built with###
 
+C:\workspace\hellofreshchallenge\webtest\target\classes
