@@ -1,3 +1,21 @@
+#Restapi
+This is autotests for rest api integration testing
+
+##Run restapi tests
+
+mvn clean test
+
+##Run restapi tests under another environment
+mvn clean test -Drestassured.baseUrl=<url>
+
+#Settings
+
+##### hostUrl
+src/test/resources/application.properties file contains default settings
+
+
+#Webapi
+
 #This is Hellofresh challenge
 
 This is an application to test http://automationpractice.com
@@ -23,3 +41,4 @@ This is an application to test http://automationpractice.com
 ###Built with###
 
 C:\workspace\hellofreshchallenge\webtest\target\classes
+

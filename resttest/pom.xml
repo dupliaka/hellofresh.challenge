@@ -12,29 +12,20 @@
     <artifactId>resttest</artifactId>
 
     <properties>
-        <junit.version>4.12</junit.version>
-        <slf4jVersion>1.7.5</slf4jVersion>
-        <slf4jSimpleVersion>1.6.4</slf4jSimpleVersion>
-        <junit.jupiter.version>5.0.0</junit.jupiter.version>
-        <junit.platform.version>1.0.0</junit.platform.version>
+        <rest.assured.version>3.2.0</rest.assured.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
-            <version>3.2.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${slf4jVersion}</version>
+            <version>${rest.assured.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>${slf4jSimpleVersion}</version>
+            <groupId>pl.pragmatists</groupId>
+            <artifactId>JUnitParams</artifactId>
+            <version>1.1.1</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
@@ -42,14 +33,7 @@
             <version>2.8.5</version>
         </dependency>
     </dependencies>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.19.1</version>
-            </plugin>
-        </plugins>
-    </build>
+
+
 
 </project>

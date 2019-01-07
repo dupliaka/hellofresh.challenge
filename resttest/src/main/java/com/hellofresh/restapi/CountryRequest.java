@@ -22,7 +22,7 @@ public class CountryRequest {
     private static final RequestSpecification requestSpec = new RequestSpecBuilder()
             .setBaseUri(ConfigurationManager.getHostUrl())
             .setContentType(ContentType.JSON)
-            .log(LogDetail.ALL)
+            .log(LogDetail.URI)
             .build();
 
     private final ResponseSpecification getCountrySpec = new ResponseSpecBuilder()

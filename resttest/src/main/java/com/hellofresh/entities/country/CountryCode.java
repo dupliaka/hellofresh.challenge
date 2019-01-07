@@ -6,6 +6,13 @@ public class CountryCode {
     private String alpha2_code;
     private String alpha3_code;
 
+    public CountryCode(String name, String alpha2_code, String alpha3_code) {
+        this.name = name;
+        this.alpha2_code = alpha2_code;
+        this.alpha3_code = alpha3_code;
+    }
+
+
     public String getName() {
         return name;
     }
@@ -18,33 +25,5 @@ public class CountryCode {
         return alpha3_code;
     }
 
-    public static Builder newBuilder() {
-        return new CountryCode().new Builder();
-    }
 
-    public class Builder {
-
-        private Builder() {
-        }
-
-        public Builder name(String name) {
-            CountryCode.this.name = name;
-            return this;
-        }
-
-        public Builder alpha2_code(String alpha2_code) {
-            CountryCode.this.alpha2_code = alpha2_code;
-            return this;
-        }
-
-        public Builder alpha3_code(String getAlpha3_code) {
-            CountryCode.this.alpha3_code = getAlpha3_code;
-            return this;
-        }
-
-        public CountryCode build() {
-            return CountryCode.this;
-        }
-
-    }
 }
