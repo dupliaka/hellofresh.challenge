@@ -1,12 +1,16 @@
 package com.hellofresh.entities.country;
 
-import lombok.Getter;
-
 import java.util.List;
-
-@Getter
 
 public class CountryRestResponse {
     List<String> messages;
     CountryCode result;
+
+    public List<String> getMessages() {
+        return messages;
+    }
+
+    public CountryCode getResult() {
+        return result;
+    }
 }

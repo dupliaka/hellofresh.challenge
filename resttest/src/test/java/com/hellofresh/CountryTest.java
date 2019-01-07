@@ -5,6 +5,8 @@ import com.hellofresh.entities.country.CountryIsoCode;
 import com.hellofresh.restapi.CountryRequest;
 import org.junit.Test;
 
+import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
+
 
 public class CountryTest {
 
@@ -12,7 +14,7 @@ public class CountryTest {
     public void getAllCountriesDeUsGbTest(){
 
         CountriesIsoCode countries = new CountryRequest().getAllCountries();
-        assertThat(countries).extracting("CountryRestResponse")
+        assertThat(countries).extracting("RestResponse")
                 .flatExtracting("result")
                 .extracting("alpha2_code")
                 .contains("DE", "US", "GB");
@@ -22,7 +24,7 @@ public class CountryTest {
     public void getCountryTest(){
 
         //TODO: keep out via param test
-        CountryCode countryIsoCodeExpected = CountryCode.builder()
+        CountryCode countryIsoCodeExpected = CountryCode.newBuilder()
                 .name("United Kingdom of Great Britain and Northern Ireland")
                 .alpha2_code("GB")
                 .alpha3_code("GBR").build();
