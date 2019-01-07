@@ -1,4 +1,4 @@
-package helpers;
+package com.hellofresh.helper;
 
 
 public class ConfigurationManager {

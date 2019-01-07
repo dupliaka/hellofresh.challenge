@@ -24,7 +24,6 @@ public class AuthenticationPageSteps {
         PageManager.getAuthenticationPage().createAnAccount(email);
     }
 
-
     @And("^fill (\\w+) profile$")
     public void fillJohnProfile(String profileFileName) {
         String personProfile = ResourceLoader.getResourceAsString(format(profilePathFileMask, profileFileName));
@@ -32,11 +31,9 @@ public class AuthenticationPageSteps {
         PageManager.getAccountCreationPersonalInformation().fillPersonalInfo(profile);
     }
 
-
     @Then("^success sign in$")
     public void successLogin() {
         PageManager.getMyAccountPage().accountWasCreatedSuccessfully();
     }
-
 
 }
