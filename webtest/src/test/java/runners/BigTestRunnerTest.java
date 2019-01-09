@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
         glue = "steps",
         tags = "@big")
 
-public class BigTestRunner {
+public class BigTestRunnerTest {
 
     @BeforeClass
     static public void setupTimeout() {

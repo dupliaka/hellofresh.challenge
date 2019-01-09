@@ -21,8 +21,8 @@ public class MyAccountPage {
 
     public void accountWasCreatedSuccessfully() {
 
-        heading.shouldHave(Condition.hasText("MY ACCOUNT"));
-        accountInfo.shouldHave(Condition.hasText("Welcome to your account."));
+        heading.shouldHave(Condition.text("MY ACCOUNT"));
+        accountInfo.shouldHave(Condition.text("Welcome to your account."));
         logout.shouldBe(Condition.visible);
         //TODO:figure out account validation
         //TODO:figure out account validation

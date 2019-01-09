@@ -8,7 +8,7 @@ import cucumber.api.java.en.When;
 import entity.PersonProfile;
 import helpers.ResourceLoader;
 import pages.MyAccountPage;
-import pages.PageManager;
+import pages.authentication.AccountCreationPersonalInformationPage;
 import pages.authentication.AuthenticationPage;
 
 import java.util.Date;
@@ -23,6 +23,7 @@ public class AuthenticationPageSteps {
 
     private static final MyAccountPage myAccountPage = page(MyAccountPage.class);
     private static final AuthenticationPage authenticationPage = page(AuthenticationPage.class);
+    private static final AccountCreationPersonalInformationPage accountCreationPersonalInformationPage = page(AccountCreationPersonalInformationPage.class);
     private static final String profilePathFileMask = "users/%s.json";
 
     @When("^signIn with new account$")
@@ -42,15 +43,15 @@ public class AuthenticationPageSteps {
     @And("^fill (\\w+) profile$")
     public void fillJohnProfile(String profileFileName) {
         PersonProfile profile =  getProfile(profileFileName);
-        PageManager.getAccountCreationPersonalInformation().fillPersonalInfo(profile);
+        accountCreationPersonalInformationPage.fillPersonalInfo(profile);
     }
 
     @Then("^success sign in with (\\w+) profile$")
     public void successLogin(String profileName) {
         PersonProfile personProfile = getProfile(profileName);
 
-        myAccountPage.getHeading().shouldHave(Condition.hasText("MY ACCOUNT"));
-        myAccountPage.getAccountInfo().shouldHave(Condition.hasText("Welcome to your account."));
+        myAccountPage.getHeading().shouldHave(Condition.text("MY ACCOUNT"));
+        myAccountPage.getAccountInfo().shouldHave(Condition.text("Welcome to your account."));
         myAccountPage.getLogout().shouldBe(Condition.visible);
         myAccountPage.getAccount().shouldHave(text(personProfile.getFirstName()+" "+ personProfile.getLastName()));
         assertTrue(url().matches("(.*)controller=my-account"));
