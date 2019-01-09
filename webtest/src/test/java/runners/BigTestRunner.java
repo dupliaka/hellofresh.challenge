@@ -1,3 +1,5 @@
+package runners;
+
 import com.codeborne.selenide.Configuration;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
@@ -19,7 +21,7 @@ public class BigTestRunner {
     @BeforeClass
     static public void setupTimeout() {
         ConfigurationManager.setup();
-        Configuration.timeout = 10000;
+        Configuration.timeout = 100000;
     }
 
 
